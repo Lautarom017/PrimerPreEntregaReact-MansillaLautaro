@@ -1,19 +1,17 @@
 import CartWidget from "../cardwidget/cardwidget"
+import './navbar.css'
 
-const Navbar = () => {
+const Navbar = ({ handleCategoria }) => {
 
+    const cambiarCategoria = (categoria) => {
+        handleCategoria(categoria)
+    }
     return(
-        <nav>
-            <h1>Jarana</h1>
-            <div>
-                <ul>
-                <a href="#">Productos</a>
-                <a href="#">Arma tu combo</a>
-                <a href="#">Nosotros</a>
-                <a href="#">Contacto</a>
+        <nav className="navbar">
+            <h1 onsClick={() => cambiarCategoria('todos')}>Jarana</h1>
+                <p onClick={() => cambiarCategoria('electronics')}>Electronica</p>
+                <p onClick={() => cambiarCategoria('jewelery')}>Joyeria</p>
                 <CartWidget />
-                </ul>
-            </div>
         </nav>
     )
 }
